@@ -1,0 +1,90 @@
+html {
+    background-color: #ECEDF4;
+}
+
+
+.title {
+    padding-top: 30px;
+    font-family: 'Cabin', sans-serif;
+    font-size: 23pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h2 {
+    font-family: 'Cabin', sans-serif;
+}
+
+.tarih {
+    padding-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.turContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.turContainer2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 24px;
+}
+
+.tur {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.inputbox {
+    font-family: 'Cabin', sans-serif;
+    font-size: 17pt;
+    box-shadow: 2px 2px rgba(0,0,0, 0.4);
+    border-width: 1px;
+    border-radius: 4px;
+    display: flex;
+    width: 60px;
+    margin-left: 10px;
+    margin-bottom: 12px;
+    
+}
+
+.result {
+    font-family: 'Cabin', sans-serif;
+    display: flex;
+    justify-content: center;
+    
+    font-size: 14pt;
+    
+
+}
+
+
+.button {
+    display: flex;
+    justify-content: center;
+    line-break: auto;
+}
+
+.resultButton {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    font-family: 'Cabin', sans-serif;
+    font-size: 15pt;
+    background: rgb(227, 242, 253);
+    border-color: black;
+    border-width: 2px;
+    box-shadow: 2px 2px rgba(0,0,0, 0.4);
+    border-radius: 3px;
+    cursor: pointer;
+}
