@@ -19,22 +19,19 @@
           <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
           <mat-datepicker #picker1></mat-datepicker>
         </mat-form-field>
-        
       </div>
       
       <div class="turContainer">
-
         <div class="tur">
           <h2>Üretim: </h2>
-          <input class="inputbox" type="text" id="valueUretim">
+          <input [(ngModel)]="uretimInput" class="inputbox" type="text" id="valueUretim">
         </div>
-
       </div>
 
       <div class="turContainer2">
         <div class="tur">
           <h2>Planlanan: </h2>
-          <input class="inputbox" type="text" id="valuePlanlanan">
+          <input [(ngModel)]="planlananInput" class="inputbox" type="text" id="valuePlanlanan">
         </div>
       </div>
 
@@ -47,10 +44,10 @@
       </div>
 
 
-      <h2 id="listeIsim"></h2>
+      <h3 class="listeIsim" id="listeIsim"></h3>
       
       <div>
-        <span id="liste"></span>
+        <span class="liste" id="liste"></span>
       </div>
 
 

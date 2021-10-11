@@ -1,10 +1,5 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatFormFieldModule} from '@angular/material/form-field';
-
-
-
 
 @Component({
   selector: 'app-root',
@@ -13,7 +8,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 })
 
 export class AppComponent {
-
 
   aylar: any = {
     'Jan': "Ocak",
@@ -32,52 +26,39 @@ export class AppComponent {
   }
 
   title = 'verimlilik-hesabi';
-
- 
-
   date = new FormControl(new Date());
-  tarih1: any;
   liste = [''];
-  duzenlenecekListe = [''];
+  tarihDuzenleme = [''];
+  uretimInput: string = '';
+  planlananInput: string = '';
 
-  public result() { // Hesaplama kodu
-    
+  public result() {
+
     let valueUretim = (document.getElementById("valueUretim") as HTMLInputElement).value;
     let valuePlanlanan = (document.getElementById("valuePlanlanan") as HTMLInputElement).value;
-    
+
     let sonuc = (parseFloat(valueUretim) / parseFloat(valuePlanlanan) * 100);
 
+
+    this.tarihDuzenleme = this.date.value.toString().split(' ');
+    this.tarihDuzenleme.splice(0, 1);
+    this.tarihDuzenleme.splice(3, 3);
+    let ingilizceAy = this.tarihDuzenleme[0];
+    let turkceAy = this.aylar[ingilizceAy];
+    this.tarihDuzenleme.splice(0, 1);
+    this.tarihDuzenleme.unshift(turkceAy);
+    let tarih = this.tarihDuzenleme.join('-')
+
     if (sonuc) {
-      document.getElementById("result")!.innerHTML = 'Verim: %' + sonuc;
+      document.getElementById("result")!.innerHTML = 'Verim: %' + sonuc.toFixed(2);
+      this.liste.push('Verim: %' + sonuc.toFixed(2).toString() + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + 'Tarih: ' + tarih);
+      document.getElementById("listeIsim")!.innerHTML = 'Hesap Listesi:';
+      document.getElementById("liste")!.innerHTML = this.liste.join('</br>');
+      this.uretimInput = '';
+      this.planlananInput = '';
     } else {
       document.getElementById("result")!.innerHTML = 'Verimlilik hesabı için lütfen gerekli alanları doldurunuz.';
     }
-    
-    
-    this.duzenlenecekListe = this.date.value.toString().split(' ');
-    this.duzenlenecekListe.splice(0, 1);
-    this.duzenlenecekListe.splice(3, 3);
-    let ingilizceAy = this.duzenlenecekListe[0];
-    let turkceAy = this.aylar[ingilizceAy];
-    this.duzenlenecekListe.splice(0, 1);
-    this.duzenlenecekListe.unshift(turkceAy);
-    let tarih = this.duzenlenecekListe.join('-')
-
-    console.log(tarih);
-
-    
-    
-    
-
-    if (sonuc) {
-      this.liste.push('Verim: %' + sonuc.toString() + ' ' + 'Tarih: ' + tarih);
-      document.getElementById("listeIsim")!.innerHTML = 'Hesap Listesi';
-      document.getElementById("liste")!.innerHTML =   this.liste.join('</br>') ;
-    }
-    
   }
-
-  
-  
-  
 }
+
