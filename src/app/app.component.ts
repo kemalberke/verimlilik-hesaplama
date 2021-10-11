@@ -46,9 +46,11 @@ export class AppComponent {
     let ingilizceAy = this.tarihDuzenleme[0];
     let turkceAy = this.aylar[ingilizceAy];
     this.tarihDuzenleme.splice(0, 1);
+    this.tarihDuzenleme.splice(4,6);
     this.tarihDuzenleme.unshift(turkceAy);
+
     let tarih = this.tarihDuzenleme.join('-')
-    console.log(tarih);
+    console.log('Tarih:', tarih);
     if (sonuc) {
       document.getElementById("result")!.innerHTML = 'Verim: %' + sonuc.toFixed(2);
       this.liste.push('Verim: %' + sonuc.toFixed(2).toString() + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + 'Tarih: ' + tarih);
