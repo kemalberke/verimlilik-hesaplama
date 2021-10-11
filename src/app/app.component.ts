@@ -46,7 +46,7 @@ export class AppComponent {
     let ingilizceAy = this.tarihDuzenleme[0];
     let turkceAy = this.aylar[ingilizceAy];
     this.tarihDuzenleme.splice(0, 1);
-    this.tarihDuzenleme.splice(3, 6);
+    this.tarihDuzenleme.splice(2, 6);
     this.tarihDuzenleme.unshift(turkceAy);
 
     let tarih = this.tarihDuzenleme.join('-')
